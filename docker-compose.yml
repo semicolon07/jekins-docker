@@ -27,3 +27,5 @@ services:
       - VIRTUAL_HOST=jenkins.unigainfo.com
     networks:
       - "nginx_reverse_proxy"
+    depends_on: 
+      - "jenkins"
