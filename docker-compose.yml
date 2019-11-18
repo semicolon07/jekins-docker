@@ -4,6 +4,7 @@ services:
     build:
       context: .
     image: unigainfo/jenkins
+    container_name: jenkins-docker_jenkins
     user: root
     privileged: true
     expose:
@@ -16,7 +17,7 @@ services:
   
   nginx:
     image: nginx:alpine
-    container_name: nginx
+    container_name: jenkins-docker_nginx
     expose:
       - "80"
     volumes:
