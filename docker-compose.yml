@@ -25,7 +25,10 @@ services:
     restart: always
     environment:
       - VIRTUAL_HOST=jenkins.unigainfo.com
-    networks:
-      - "nginx_reverse_proxy"
     depends_on: 
       - "jenkins"
+
+networks:
+  default:
+    external:
+      name: nginx_reverse_proxy
