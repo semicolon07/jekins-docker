@@ -18,6 +18,8 @@ services:
       - VIRTUAL_PORT=8080
     restart: always
     network_mode: bridge
+    networks: 
+      - nginx_reverse_proxy
     
 networks:
   default:
