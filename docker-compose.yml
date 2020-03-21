@@ -17,6 +17,7 @@ services:
       - VIRTUAL_HOST=jenkins.unigainfo.com
       - VIRTUAL_PORT=8080
     restart: always
+    network_mode: bridge
     
 networks:
   default:
