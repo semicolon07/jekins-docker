@@ -13,11 +13,22 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - "/my/jenkins_home:/var/jenkins_home"
+    restart: always
+  
+  nginx:
+    image: nginx:alpine
+    container_name: jenkins-docker_nginx
+    expose:
+      - "80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./logs/nginx:/var/log/nginx
+    restart: always
     environment:
       - VIRTUAL_HOST=jenkins.unigainfo.com
-      - VIRTUAL_PORT=8080
-    restart: always
-    
+    depends_on: 
+      - "jenkins"
+
 networks:
   default:
     external:
